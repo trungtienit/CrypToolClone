@@ -1,0 +1,10 @@
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\bin\Debug\CrypToolClone.exe.config
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\bin\Debug\CrypToolClone.exe
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\bin\Debug\CrypToolClone.pdb
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csprojResolveAssemblyReference.cache
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.Form1.resources
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.Properties.Resources.resources
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csproj.GenerateResource.Cache
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csproj.CoreCompileInputs.cache
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.exe
+C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.pdb
