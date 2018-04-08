@@ -28,7 +28,18 @@ namespace CrypToolClone
             {
                 ResetMatrixHill();
             }
+            else if (tabVigenre.Focus())
+            {
+                ResetVigenra();
+            }
 
+        }
+
+        private void ResetVigenra()
+        {
+            tbKeyVigenre.Clear();
+            tbInputVigenre.Clear();
+            tbOutputVigenre.Clear();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,6 +56,8 @@ namespace CrypToolClone
                     tbInputPlayfair.Text = sr.ReadToEnd();
                 else if (tabHill.Focus())
                     tbInputHill.Text = sr.ReadToEnd();
+                else if (tabVigenre.Focus())
+                    tbInputVigenre.Text = sr.ReadToEnd();
                 sr.Close();
                 fs.Close();
             }
@@ -63,12 +76,14 @@ namespace CrypToolClone
             ofd.ShowDialog();
             if (ofd.FileName != "")
             {
-                FileStream fs = new FileStream(ofd.FileName, FileMode.OpenOrCreate);
+                FileStream fs = new FileStream(ofd.FileName, FileMode.Create);
                 StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
                 if (tabPlayfair.Focus())
                     sw.Write("Plaintext : " + tbInputPlayfair.Text + "\r\n" + "Key:" + tbKeyPlayfair.Text + "\r\n" + "Ciphertext : " + tbOutputPlayfair.Text);
                 else if (tabHill.Focus())
                     sw.Write("Plaintext : " + tbInputHill.Text + "\r\n" + "Key:" +"\r\n"+ hill.Print() + "\r\n" + "Value of the first Alphabet charactor: "+numericFirst.Value+"\r\n"+ "Ciphertext : " + tbOutputHill.Text);
+                else if (tabVigenre.Focus())
+                    sw.Write("Plaintext : " + tbInputVigenre.Text + "\r\n" + "Key:" + tbKeyVigenre.Text + "\r\n" + "Ciphertext : " + tbOutputVigenre.Text);
 
                 sw.Close();
                 fs.Close();
@@ -434,6 +449,7 @@ namespace CrypToolClone
 
         private void EncryptHill_Click(object sender, EventArgs e)
         {
+            tbInputHill.Text = tbInputHill.Text.Replace(" ", "");
             if (tbInputHill.Text == "")
             {
                 MessageBox.Show("Empty input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -452,6 +468,7 @@ namespace CrypToolClone
                     matriHill[i, j] = Int32.Parse(tlpNumber.GetControlFromPosition(j, i).Text);
                 }
             hill.setMatrix(matriHill);
+
             if (tbInputHill.Text.Length % sizeMatrixHill != 0)
                 tbInputHill.Text += "X";
             if (hill.Inverse() == null)
@@ -487,6 +504,46 @@ namespace CrypToolClone
                 return;
             }
             tbOutputHill.Text = hill.Decrypt(tbInputHill.Text, (int)numericFirst.Value);
+        }
+
+        private void tbKeyVigenre_TextChanged(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("^[A-Z]*$");
+            if (!regex.IsMatch(tbKeyVigenre.Text))
+            {
+                MessageBox.Show("Key invalid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        Vigenere vigenere = new Vigenere();
+        private void tbInputVigenre_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnEncryptVigenre_Click(object sender, EventArgs e)
+        {
+            tbOutputVigenre.Clear();
+            Regex regex = new Regex("^[A-Za-z]*$");
+            if (!regex.IsMatch(tbInputVigenre.Text))
+            {
+                MessageBox.Show("Input invalid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tbOutputVigenre.Text = vigenere.Encrypt(tbInputVigenre.Text, tbKeyVigenre.Text);
+        }
+
+        private void btnDecryptVigenre_Click(object sender, EventArgs e)
+        {
+            tbOutputVigenre.Clear();
+            Regex regex = new Regex("^[A-Za-z]*$");
+            if (!regex.IsMatch(tbInputVigenre.Text))
+            {
+                MessageBox.Show("Input invalid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+   
+            tbOutputVigenre.Text = vigenere.Decrypt(tbInputVigenre.Text, tbKeyVigenre.Text);
         }
     }
 }

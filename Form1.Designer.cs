@@ -48,6 +48,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tlpPlayfair = new System.Windows.Forms.TableLayoutPanel();
             this.tabVigenre = new System.Windows.Forms.TabPage();
+            this.tbKeyVigenre = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnDecryptVigenre = new System.Windows.Forms.Button();
+            this.btnEncryptVigenre = new System.Windows.Forms.Button();
+            this.tbOutputVigenre = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbInputVigenre = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabHill = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tlpNumber = new System.Windows.Forms.TableLayoutPanel();
@@ -86,6 +95,8 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabVigenre.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.tabHill.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -315,6 +326,9 @@
             // 
             // tabVigenre
             // 
+            this.tabVigenre.Controls.Add(this.tbKeyVigenre);
+            this.tabVigenre.Controls.Add(this.label8);
+            this.tabVigenre.Controls.Add(this.panel5);
             this.tabVigenre.Location = new System.Drawing.Point(8, 39);
             this.tabVigenre.Name = "tabVigenre";
             this.tabVigenre.Padding = new System.Windows.Forms.Padding(3);
@@ -322,6 +336,93 @@
             this.tabVigenre.TabIndex = 1;
             this.tabVigenre.Text = "Vigenre";
             this.tabVigenre.UseVisualStyleBackColor = true;
+            // 
+            // tbKeyVigenre
+            // 
+            this.tbKeyVigenre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbKeyVigenre.Location = new System.Drawing.Point(159, 82);
+            this.tbKeyVigenre.Name = "tbKeyVigenre";
+            this.tbKeyVigenre.Size = new System.Drawing.Size(813, 31);
+            this.tbKeyVigenre.TabIndex = 9;
+            this.tbKeyVigenre.TextChanged += new System.EventHandler(this.tbKeyVigenre_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(138, 25);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Vigenre key :";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.btnDecryptVigenre);
+            this.panel5.Controls.Add(this.btnEncryptVigenre);
+            this.panel5.Controls.Add(this.tbOutputVigenre);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.tbInputVigenre);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Location = new System.Drawing.Point(6, 156);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(982, 547);
+            this.panel5.TabIndex = 5;
+            // 
+            // btnDecryptVigenre
+            // 
+            this.btnDecryptVigenre.Location = new System.Drawing.Point(486, 260);
+            this.btnDecryptVigenre.Name = "btnDecryptVigenre";
+            this.btnDecryptVigenre.Size = new System.Drawing.Size(155, 47);
+            this.btnDecryptVigenre.TabIndex = 6;
+            this.btnDecryptVigenre.Text = "Decrypt";
+            this.btnDecryptVigenre.UseVisualStyleBackColor = true;
+            this.btnDecryptVigenre.Click += new System.EventHandler(this.btnDecryptVigenre_Click);
+            // 
+            // btnEncryptVigenre
+            // 
+            this.btnEncryptVigenre.Location = new System.Drawing.Point(169, 260);
+            this.btnEncryptVigenre.Name = "btnEncryptVigenre";
+            this.btnEncryptVigenre.Size = new System.Drawing.Size(155, 47);
+            this.btnEncryptVigenre.TabIndex = 5;
+            this.btnEncryptVigenre.Text = "Encrypt";
+            this.btnEncryptVigenre.UseVisualStyleBackColor = true;
+            this.btnEncryptVigenre.Click += new System.EventHandler(this.btnEncryptVigenre_Click);
+            // 
+            // tbOutputVigenre
+            // 
+            this.tbOutputVigenre.Location = new System.Drawing.Point(16, 338);
+            this.tbOutputVigenre.Multiline = true;
+            this.tbOutputVigenre.Name = "tbOutputVigenre";
+            this.tbOutputVigenre.Size = new System.Drawing.Size(948, 186);
+            this.tbOutputVigenre.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 300);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 25);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Output :";
+            // 
+            // tbInputVigenre
+            // 
+            this.tbInputVigenre.Location = new System.Drawing.Point(14, 50);
+            this.tbInputVigenre.Multiline = true;
+            this.tbInputVigenre.Name = "tbInputVigenre";
+            this.tbInputVigenre.Size = new System.Drawing.Size(948, 186);
+            this.tbInputVigenre.TabIndex = 1;
+            this.tbInputVigenre.TextChanged += new System.EventHandler(this.tbInputVigenre_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 25);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Input :";
             // 
             // tabHill
             // 
@@ -704,6 +805,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.tabVigenre.ResumeLayout(false);
+            this.tabVigenre.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.tabHill.ResumeLayout(false);
             this.tabHill.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -775,6 +880,15 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tlpNumber;
         private System.Windows.Forms.TableLayoutPanel tlpAlphabet;
+        private System.Windows.Forms.TextBox tbKeyVigenre;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnDecryptVigenre;
+        private System.Windows.Forms.Button btnEncryptVigenre;
+        private System.Windows.Forms.TextBox tbOutputVigenre;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbInputVigenre;
+        private System.Windows.Forms.Label label7;
     }
 }
 
