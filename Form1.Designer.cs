@@ -49,6 +49,9 @@
             this.tlpPlayfair = new System.Windows.Forms.TableLayoutPanel();
             this.tabVigenre = new System.Windows.Forms.TabPage();
             this.tabHill = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tlpNumber = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpAlphabet = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbHill5x5 = new System.Windows.Forms.RadioButton();
             this.rbHill4x4 = new System.Windows.Forms.RadioButton();
@@ -63,11 +66,11 @@
             this.rbHillNumber = new System.Windows.Forms.RadioButton();
             this.rbHillAlphabet = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnDecryptHill = new System.Windows.Forms.Button();
+            this.btnEncryptHill = new System.Windows.Forms.Button();
+            this.tbOutputHill = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbInputHill = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,9 +80,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tlpAlphabet = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpNumber = new System.Windows.Forms.TableLayoutPanel();
             this.tabcPlayfair.SuspendLayout();
             this.tabPlayfair.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,12 +87,12 @@
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabHill.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericFirst)).BeginInit();
             this.panelCachnhap.SuspendLayout();
             this.panel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabcPlayfair
@@ -340,6 +340,61 @@
             this.tabHill.Text = "Hill";
             this.tabHill.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tlpNumber);
+            this.groupBox3.Controls.Add(this.tlpAlphabet);
+            this.groupBox3.Location = new System.Drawing.Point(11, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(773, 319);
+            this.groupBox3.TabIndex = 67;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Key matrix";
+            // 
+            // tlpNumber
+            // 
+            this.tlpNumber.ColumnCount = 6;
+            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpNumber.Location = new System.Drawing.Point(397, 25);
+            this.tlpNumber.Margin = new System.Windows.Forms.Padding(6);
+            this.tlpNumber.Name = "tlpNumber";
+            this.tlpNumber.RowCount = 6;
+            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNumber.Size = new System.Drawing.Size(367, 277);
+            this.tlpNumber.TabIndex = 1;
+            // 
+            // tlpAlphabet
+            // 
+            this.tlpAlphabet.ColumnCount = 6;
+            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAlphabet.Location = new System.Drawing.Point(9, 25);
+            this.tlpAlphabet.Margin = new System.Windows.Forms.Padding(6);
+            this.tlpAlphabet.Name = "tlpAlphabet";
+            this.tlpAlphabet.RowCount = 6;
+            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAlphabet.Size = new System.Drawing.Size(367, 277);
+            this.tlpAlphabet.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rbHill5x5);
@@ -432,7 +487,7 @@
             this.labelCachnhap.Size = new System.Drawing.Size(0, 25);
             this.labelCachnhap.TabIndex = 48;
             // 
-            // numericUpDownDau
+            // numericFirst
             // 
             this.numericFirst.Location = new System.Drawing.Point(421, 421);
             this.numericFirst.Margin = new System.Windows.Forms.Padding(6);
@@ -441,9 +496,10 @@
             0,
             0,
             0});
-            this.numericFirst.Name = "numericUpDownDau";
+            this.numericFirst.Name = "numericFirst";
             this.numericFirst.Size = new System.Drawing.Size(62, 31);
             this.numericFirst.TabIndex = 51;
+            this.numericFirst.ValueChanged += new System.EventHandler(this.numericFirst_ValueChanged);
             // 
             // labelz
             // 
@@ -493,43 +549,45 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.btnDecryptHill);
+            this.panel4.Controls.Add(this.btnEncryptHill);
+            this.panel4.Controls.Add(this.tbOutputHill);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBox3);
+            this.panel4.Controls.Add(this.tbInputHill);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(11, 480);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(982, 339);
             this.panel4.TabIndex = 4;
             // 
-            // button1
+            // btnDecryptHill
             // 
-            this.button1.Location = new System.Drawing.Point(478, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 47);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Decrypt";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDecryptHill.Location = new System.Drawing.Point(478, 154);
+            this.btnDecryptHill.Name = "btnDecryptHill";
+            this.btnDecryptHill.Size = new System.Drawing.Size(155, 47);
+            this.btnDecryptHill.TabIndex = 6;
+            this.btnDecryptHill.Text = "Decrypt";
+            this.btnDecryptHill.UseVisualStyleBackColor = true;
+            this.btnDecryptHill.Click += new System.EventHandler(this.btnDecryptHill_Click);
             // 
-            // button2
+            // btnEncryptHill
             // 
-            this.button2.Location = new System.Drawing.Point(161, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 47);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Encrypt";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEncryptHill.Location = new System.Drawing.Point(161, 154);
+            this.btnEncryptHill.Name = "btnEncryptHill";
+            this.btnEncryptHill.Size = new System.Drawing.Size(155, 47);
+            this.btnEncryptHill.TabIndex = 5;
+            this.btnEncryptHill.Text = "Encrypt";
+            this.btnEncryptHill.UseVisualStyleBackColor = true;
+            this.btnEncryptHill.Click += new System.EventHandler(this.EncryptHill_Click);
             // 
-            // textBox1
+            // tbOutputHill
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(14, 240);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(948, 92);
-            this.textBox1.TabIndex = 3;
+            this.tbOutputHill.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbOutputHill.Location = new System.Drawing.Point(14, 240);
+            this.tbOutputHill.Multiline = true;
+            this.tbOutputHill.Name = "tbOutputHill";
+            this.tbOutputHill.Size = new System.Drawing.Size(948, 92);
+            this.tbOutputHill.TabIndex = 3;
             // 
             // label4
             // 
@@ -540,14 +598,14 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Output :";
             // 
-            // textBox3
+            // tbInputHill
             // 
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Location = new System.Drawing.Point(14, 50);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(948, 84);
-            this.textBox3.TabIndex = 1;
+            this.tbInputHill.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbInputHill.Location = new System.Drawing.Point(14, 50);
+            this.tbInputHill.Multiline = true;
+            this.tbInputHill.Name = "tbInputHill";
+            this.tbInputHill.Size = new System.Drawing.Size(948, 84);
+            this.tbInputHill.TabIndex = 1;
             // 
             // label5
             // 
@@ -622,61 +680,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(92, 36);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tlpNumber);
-            this.groupBox3.Controls.Add(this.tlpAlphabet);
-            this.groupBox3.Location = new System.Drawing.Point(11, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(773, 319);
-            this.groupBox3.TabIndex = 67;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Key matrix";
-            // 
-            // tlpAlphabet
-            // 
-            this.tlpAlphabet.ColumnCount = 6;
-            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpAlphabet.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpAlphabet.Location = new System.Drawing.Point(9, 25);
-            this.tlpAlphabet.Margin = new System.Windows.Forms.Padding(6);
-            this.tlpAlphabet.Name = "tlpAlphabet";
-            this.tlpAlphabet.RowCount = 6;
-            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpAlphabet.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpAlphabet.Size = new System.Drawing.Size(367, 277);
-            this.tlpAlphabet.TabIndex = 0;
-            // 
-            // tlpNumber
-            // 
-            this.tlpNumber.ColumnCount = 6;
-            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpNumber.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpNumber.Location = new System.Drawing.Point(397, 25);
-            this.tlpNumber.Margin = new System.Windows.Forms.Padding(6);
-            this.tlpNumber.Name = "tlpNumber";
-            this.tlpNumber.RowCount = 6;
-            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNumber.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNumber.Size = new System.Drawing.Size(367, 277);
-            this.tlpNumber.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -703,6 +706,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tabHill.ResumeLayout(false);
             this.tabHill.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericFirst)).EndInit();
@@ -712,7 +716,6 @@
             this.panel4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -763,11 +766,11 @@
         private System.Windows.Forms.RadioButton rbHillNumber;
         private System.Windows.Forms.RadioButton rbHillAlphabet;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnDecryptHill;
+        private System.Windows.Forms.Button btnEncryptHill;
+        private System.Windows.Forms.TextBox tbOutputHill;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbInputHill;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tlpNumber;

@@ -8,3 +8,13 @@ C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClo
 C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csproj.CoreCompileInputs.cache
 C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.exe
 C:\Users\trantien\source\repos\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.pdb
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\bin\Debug\CrypToolClone.exe.config
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\bin\Debug\CrypToolClone.exe
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\bin\Debug\CrypToolClone.pdb
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csprojResolveAssemblyReference.cache
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.Form1.resources
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.Properties.Resources.resources
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csproj.GenerateResource.Cache
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.csproj.CoreCompileInputs.cache
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.exe
+Y:\Skill\Code\C#\ATM\CrypToolClone\CrypToolClone\obj\Debug\CrypToolClone.pdb

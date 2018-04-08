@@ -24,7 +24,11 @@ namespace CrypToolClone
             if (tabPlayfair.Focus())
             {
                 ResetPlayfair();
+            }else if (tabHill.Focus())
+            {
+                ResetMatrixHill();
             }
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,6 +43,8 @@ namespace CrypToolClone
 
                 if (tabPlayfair.Focus())
                     tbInputPlayfair.Text = sr.ReadToEnd();
+                else if (tabHill.Focus())
+                    tbInputHill.Text = sr.ReadToEnd();
                 sr.Close();
                 fs.Close();
             }
@@ -61,6 +67,9 @@ namespace CrypToolClone
                 StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
                 if (tabPlayfair.Focus())
                     sw.Write("Plaintext : " + tbInputPlayfair.Text + "\r\n" + "Key:" + tbKeyPlayfair.Text + "\r\n" + "Ciphertext : " + tbOutputPlayfair.Text);
+                else if (tabHill.Focus())
+                    sw.Write("Plaintext : " + tbInputHill.Text + "\r\n" + "Key:" +"\r\n"+ hill.Print() + "\r\n" + "Value of the first Alphabet charactor: "+numericFirst.Value+"\r\n"+ "Ciphertext : " + tbOutputHill.Text);
+
                 sw.Close();
                 fs.Close();
             }
@@ -72,7 +81,7 @@ namespace CrypToolClone
         }
         #region Playfair
         Playfair playfair = new Playfair();
-        private int sizeMatrixHill = 1;
+     
 
         private void rbPlayfair5x5_CheckedChanged(object sender, EventArgs e)
         {
@@ -209,6 +218,9 @@ namespace CrypToolClone
         }
         #endregion
         #region Hill
+        private int sizeMatrixHill = 1;
+        private Hill hill = new Hill();
+        private int[,] matriHill;
         private void rbHill_CheckedChanged(object sender, EventArgs e)
         {
             if (rbHill1x1.Checked)
@@ -236,8 +248,6 @@ namespace CrypToolClone
                 sizeMatrixHill = 5;
                 UpdateMatrixHill();
             }
-           
-
         }
 
         protected void TextAlphabetChanged(object sender, EventArgs e)
@@ -248,7 +258,11 @@ namespace CrypToolClone
                 MessageBox.Show("Key invalid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            if (rbHillAlphabet.Checked)
+            {
+                TableLayoutPanelCellPosition pos = tlpAlphabet.GetPositionFromControl((sender as Control));
+                tlpNumber.GetControlFromPosition(pos.Column, pos.Row).Text = Hill.ConvertCharToNumber((sender as TextBox).Text, (int)numericFirst.Value);
+            }
         }
         protected void TextNumberChanged(object sender, EventArgs e)
         {
@@ -257,6 +271,16 @@ namespace CrypToolClone
             {
                 MessageBox.Show("Key invalid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            if (rbHillNumber.Checked)
+            {
+
+                TableLayoutPanelCellPosition pos = tlpNumber.GetPositionFromControl((sender as Control));
+                if ((sender as TextBox).Text.Equals("") || (sender as TextBox).Text.Equals(" "))
+                    return;
+
+                tlpAlphabet.GetControlFromPosition(pos.Column, pos.Row).Text = Hill.ConverNumberToChar((sender as TextBox).Text, (int)numericFirst.Value);
             }
         }
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -270,7 +294,10 @@ namespace CrypToolClone
 
         private void ResetMatrixHill()
         {
-         //   throw new NotImplementedException();
+            rbHillNumber.Checked = true ;
+            rbHillAlphabet.Checked = true;
+            tbInputHill.Clear();
+            numericFirst.Value = 0;
         }
         private void UpdateMatrixHill()
         {
@@ -280,14 +307,14 @@ namespace CrypToolClone
                     TextBox currentTb = tlpAlphabet.GetControlFromPosition(j, i) as TextBox;
                     TextBox currentTb1 = tlpNumber.GetControlFromPosition(j, i) as TextBox;
                     //region matrix current
-                    if (i< sizeMatrixHill && j< sizeMatrixHill)
+                    if (i < sizeMatrixHill && j < sizeMatrixHill)
                     {
                         if (rbHillAlphabet.Checked)
                         {
                             currentTb.ReadOnly = false;
                             currentTb.BackColor = Color.White;
                             currentTb1.BackColor = Color.FromArgb(255, 240, 240, 240);
-                            currentTb1.Text = "";
+
                             currentTb1.ReadOnly = true;
                         }
                         else
@@ -295,7 +322,7 @@ namespace CrypToolClone
                             currentTb1.ReadOnly = false;
                             currentTb1.BackColor = Color.White;
                             currentTb.BackColor = Color.FromArgb(255, 240, 240, 240);
-                            currentTb.Text = "";
+
                             currentTb.ReadOnly = true;
                         }
 
@@ -304,14 +331,15 @@ namespace CrypToolClone
                     {
                         currentTb.BackColor = Color.FromArgb(255, 240, 240, 240);
                         currentTb1.BackColor = Color.FromArgb(255, 240, 240, 240);
-                        currentTb.Text = "";
+
                         currentTb.ReadOnly = true;
-                        currentTb1.Text = "";
+
                         currentTb1.ReadOnly = true;
 
                         //tlpNumber.GetControlFromPosition(j, i).Text = a[i, j].ToString();
                     }
-                   
+                    currentTb.Text = "";
+                    currentTb1.Text = "";
                 }
         }
         public void SetMatrixHill()
@@ -375,35 +403,91 @@ namespace CrypToolClone
 
         private void buttonRandom_Click(object sender, EventArgs e)
         {
+            rbHillNumber.Checked = true;
             Random RanDom = new Random();
             int k = (int)numericFirst.Value;
             int n = sizeMatrixHill;
-            int[,] a = new int[n, n];
-
-            for (int i = 0; i < n; i++)
-                for (int j = 0; j < n; j++)
-                {
-                    a[i, j] = RanDom.Next(k, k + 25 + 1);
-                }
-            //    hill.setmatrix(a);
-            //    hill.setnghichdao(hill.getmatrix());
-            //} while (hill.getnghichdao() == null);
-            if (rbHillNumber.Checked)
-                for (int i = 0; i < n; i++)
-                    for (int j = 0; j < n; j++)
-                    {
-                        tlpNumber.GetControlFromPosition(j, i).Text = a[i, j].ToString();
-                    }
-            else
+            matriHill = new int[sizeMatrixHill, sizeMatrixHill];
+            do
             {
                 for (int i = 0; i < n; i++)
                     for (int j = 0; j < n; j++)
                     {
-                       // tlpAlphabet.GetControlFromPosition(j, i).Text = hill.Sothanhchu(a[i, j].ToString(), (int)numericFirst.Value);
+                        matriHill[i, j] = RanDom.Next(k, k + 25 + 1);
                     }
-            }
+                hill.setMatrix(matriHill);
+
+            } while (hill.Inverse() == null);
+
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    tlpNumber.GetControlFromPosition(j, i).Text = matriHill[i, j].ToString();
+                }
+
         }
 
+        private void numericFirst_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateMatrixHill();
+        }
+
+        private void EncryptHill_Click(object sender, EventArgs e)
+        {
+            if (tbInputHill.Text == "")
+            {
+                MessageBox.Show("Empty input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbInputHill.Focus();
+                return;
+            }
+            matriHill = new int[sizeMatrixHill, sizeMatrixHill];
+            for (int i = 0; i < sizeMatrixHill; i++)
+                for (int j = 0; j < sizeMatrixHill; j++)
+                {
+                    if (tlpNumber.GetControlFromPosition(j, i).Text == "")
+                    {
+                        MessageBox.Show("Key invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    matriHill[i, j] = Int32.Parse(tlpNumber.GetControlFromPosition(j, i).Text);
+                }
+            hill.setMatrix(matriHill);
+            if (tbInputHill.Text.Length % sizeMatrixHill != 0)
+                tbInputHill.Text += "X";
+            if (hill.Inverse() == null)
+            {
+                MessageBox.Show("Key invalid, matrix is not invertible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tbOutputHill.Text = hill.Encrypt(tbInputHill.Text,(int) numericFirst.Value);
+        }
+
+        private void btnDecryptHill_Click(object sender, EventArgs e)
+        {
+            if (tbInputHill.Text == "")
+            {
+                MessageBox.Show("Empty input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbInputHill.Focus();
+                return;
+            }
+            for (int i = 0; i < sizeMatrixHill; i++)
+                for (int j = 0; j < sizeMatrixHill; j++)
+                {
+                    if (tlpNumber.GetControlFromPosition(j, i).Text == "")
+                    {
+                        MessageBox.Show("Key invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    matriHill[i, j] = Int32.Parse(tlpNumber.GetControlFromPosition(j, i).Text);
+                }
+            hill.setMatrix(matriHill);
+            if (hill.Inverse() == null)
+            {
+                MessageBox.Show("Key invalid, matrix is not invertible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tbOutputHill.Text = hill.Decrypt(tbInputHill.Text, (int)numericFirst.Value);
+        }
     }
 }
-    
+
